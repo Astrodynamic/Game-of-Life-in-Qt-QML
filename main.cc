@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<GameOfLifeModel>("GameOfLifeModel", 1, 0, "GameOfLifeModel");
 
     QQmlApplicationEngine engine;
-    const QUrl url(u"qrc:/GameOfLife/main.qml"_qs);
+    const QUrl url(u"qrc:/GameOfLife/components/main.qml"_qs);
     QObject::connect(
         &engine, &QQmlApplicationEngine::objectCreated, &app,
         [url](QObject *obj, const QUrl &objUrl) {

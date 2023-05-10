@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.15)
 
-project(GameOfLife VERSION 1.0 LANGUAGES CXX)
+project(GameOfLife VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -10,17 +10,21 @@ find_package(Qt6 6.2 COMPONENTS
     REQUIRED
 )
 
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/model
+)
+
 qt_add_executable(${PROJECT_NAME}
     main.cc
-    gameoflifemodel.cc
-    gameoflifemodel.h
+    model/gameoflifemodel.cc
+    model/gameoflifemodel.h
 )
 
 qt_add_qml_module(${PROJECT_NAME}
     URI ${PROJECT_NAME}
     VERSION 1.0
     QML_FILES
-    main.qml
+    components/main.qml
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
